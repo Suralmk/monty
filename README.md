@@ -13,7 +13,7 @@ a stack and queue (LIFO and FIFO) programming language interpreter created in t
 * You have to use malloc and free and are not allowed to use any other function from man malloc <br> (realloc, calloc, …)
 ## Requirements
 
-* Allowed editors: vi, vim, emacs
+* Allowed editors: vi, vim, emac
 * All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=c90
 * All your files should end with a new line
 * A README.md file, at the root of the folder of the project is mandatory
