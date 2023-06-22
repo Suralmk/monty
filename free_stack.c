@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
-* free_stack - this function frees the linked list, stack
+* free_the_stack - this function frees the linked list, stack
 * @head: pointer to the head of the stack
 *
 * Return: void
@@ -20,7 +20,7 @@ void free_the_stack(stack_t *head)
 }
 
 /**
-* fUNCTION_stack - prints the top of the stack
+* function_stack - prints the top of the stack
 * @head: the head of the stack, linked list
 * @counter: line counter number
 *

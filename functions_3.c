@@ -36,9 +36,8 @@ void function_pop(stack_t **head, unsigned int counter)
 void function_pint(stack_t **head, unsigned int counter)
 {
 	stack_t *tmp;
-	
-	tmp = *head;
 
+	tmp = *head;
 	if (tmp == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);

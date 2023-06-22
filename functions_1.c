@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
-* f_add - function that sums the stack's top two items
+* function_sum - function that sums the stack's top two items
 * @head: pointer to the pointer to the head of the stack
 * @counter: line counter number
 *

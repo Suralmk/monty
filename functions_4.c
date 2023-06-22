@@ -3,7 +3,7 @@
 /**
 * function_pall - print out all the values of the stack
 * @head: pointer to the first node of the stack
-*
+* @counter: line counter number
 * Return: nothing
 */
 void function_pall(stack_t **head, unsigned int counter)
@@ -24,7 +24,7 @@ void function_pall(stack_t **head, unsigned int counter)
 /**
 * function_swap - function that swaps the top two elements of the stack
 * @head: head of stack
-* @counter: line count
+* @counter: counter for the line
 *
 * Return: nothing
 */

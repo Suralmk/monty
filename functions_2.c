@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
-* f_push - this function adds a new node at the top of the stack
+* function_push - this function adds a new node at the top of the stack
 * @head: pointer to the first node of the stack
 * @counter: line counter number
 *
@@ -19,7 +19,7 @@ void function_push(stack_t **head, unsigned int counter)
 		while (bus.arg[n] != '\0')
 		{
 				if (bus.arg[n] > 57 || bus.arg[n] < 48)
-					flagger = 1; 
+				flagger = 1;
 			n++;
 		}
 
