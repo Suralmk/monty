@@ -31,7 +31,7 @@ void function_stack(stack_t **head, unsigned int counter)
 {
         (void)head;
         (void)counter;
-        plane.lifi = 0;
+        plane.ski = 0;
 }
 /**
 * function_pall - print out all the values of the stack

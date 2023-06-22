@@ -11,7 +11,7 @@ void function_queue(stack_t **head, unsigned int counter)
 {
 	(void)head;
 	(void)counter;
-	plane.lifi = 1;
+	plane.ski = 1;
 }
 
 /**

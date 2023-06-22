@@ -1,5 +1,5 @@
 #include "monty.h"
-
+lifi
 /**
 * function_push - this function adds a new node at the top of the stack
 * @head: pointer to the first node of the stack

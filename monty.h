@@ -42,21 +42,21 @@ typedef struct instruction_s
 
 
 /**
-* struct bus_s - variable arguments, line counter number, unisgned int
+* struct plane_s - variable arguments, line counter number, unisgned int
 * the value off the arguents, File
 * @arg:  argument value
 * @box: pointer to the box file
 * @item: line item
-* @lifi: flag change stack <-> queue
+* @ski: flag change stack <-> queue
 *
 * Description: carries values through the program
 */
-typedef struct bus_s
+typedef struct plane_s
 {
 	char *arg;
 	FILE *box;
 	char *item;
-	int lifi;
+	int ski;
 }  plane_t;
 extern plane_t plane;
 
