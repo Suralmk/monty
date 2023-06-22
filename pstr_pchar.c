@@ -10,10 +10,10 @@
 */
 void function_pchar(stack_t **head, unsigned int counter)
 {
-	stack_t *tmp;
+	stack_t *ptr;
 
-	tmp = *head;
-	if (!tmp)
+	ptr = *head;
+	if (!ptr)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", counter);
 		fclose(bus.file);
@@ -21,7 +21,7 @@ void function_pchar(stack_t **head, unsigned int counter)
 		free_the_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	if (tmp->n > 127 || tmp->n < 0)
+	if (ptr->n > 127 || ptr->n < 0)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
 		fclose(bus.file);
@@ -29,5 +29,30 @@ void function_pchar(stack_t **head, unsigned int counter)
 		free_the_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", tmp->n);
+	printf("%c\n", ptr->n);
+}
+
+/**
+* function_pstr - starting from thee top of the stack prints string
+* and after printing the sstring print a new line
+* @head: pointer to the head of theack
+*
+* Return: void
+*/
+void function_pstr(stack_t **head, unsigned int counter)
+{
+	stack_t *ptr;
+	(void) counter;
+
+	ptr = *head;
+	for (; ptr != NULL; )
+	{
+		if (ptr->n > 127 || ptr->n <= 0)
+		{
+			break;
+		}
+		printf("%c", ptr->n);
+		ptr = ptr->next;
+	}
+	printf("\n");
 }

@@ -31,16 +31,15 @@ int run_mty(char *item, stack_t **stack, unsigned int counter, FILE *file)
 
 	num = 0;
 	op_code = strtok(item, " \n\t");
-	if (op_code && op_code[0] == '#')
+	if (op_code != NULL && op_code[0] == '#')
 		return (0);
 	bus.arg = strtok(NULL, " \n\t");
-	while (opcoder[num].opcode && op_code)
+	for (; opcoder[num].opcode && op_code; num++)
 	{
 		if (strcmp(op_code, opcoder[num].opcode) == 0)
 		{	opcoder[num].f(stack, counter);
 			return (0);
 		}
-		num++;
 	}
 	if (op_code && opcoder[num].opcode == NULL)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op_code);

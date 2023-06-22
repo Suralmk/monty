@@ -33,13 +33,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (space_get > 0)
+	for (; space_get > 0; )
 	{
 		item = NULL;
 		space_get = getline(&item, &i, file);
 		bus.item = item;
 		num++;
-		if (space_get > 0)
+		if (!(space_get <= 0))
 		{
 			run_mty(item, &temp, num, file);
 		}
