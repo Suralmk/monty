@@ -83,7 +83,4 @@ void function_sub(stack_t **head, unsigned int counter);
 void free_the_stack(stack_t *head);
 void function_stack(stack_t **head, unsigned int counter);
 int run_mty(char *chr, stack_t **head, unsigned int counter, FILE *file);
-char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
-ssize_t getstdin(char **lineptr, int file);
-char  *clean_line(char *content);
 #endif
