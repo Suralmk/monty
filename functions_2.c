@@ -18,8 +18,8 @@ void function_push(stack_t **head, unsigned int counter)
                 while (bus.arg[j] != '\0')
                 {
                                 if (bus.arg[j] > 57 || bus.arg[j] < 48)
-                                        sign = 1; }
-                        j++;
+                                        sign = 1;
+                        j++; }
                 if (sign == 1)
                 { fprintf(stderr, "L%d: usage: push integer\n", counter);
                         fclose(bus.file);
@@ -86,8 +86,8 @@ void function_nop(stack_t **head, unsigned int counter)
 void function_pop(stack_t **head, unsigned int counter)
 {
         stack_t *ptr;
-        ptr = *head;
-        if (ptr== NULL)
+
+        if (*head == NULL)
         {
                 fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
                 fclose(bus.file);
@@ -95,6 +95,7 @@ void function_pop(stack_t **head, unsigned int counter)
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
+	ptr = *head;
         *head = ptr->next;
         free(ptr);
 }
