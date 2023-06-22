@@ -1,58 +1,87 @@
 #include "monty.h"
+/**
+* free_the_stack - this function frees the linked list, stack
+* @head: pointer to the head of the stack
+*
+* Return: void
+*/
+void free_the_stack(stack_t *head)
+{
+        stack_t *ptr;
+
+        ptr = head;
+        for (; head; )
+        {
+                ptr = head->next;
+                free(head);
+                head = ptr;
+
+        }
+}
 
 /**
-* function_pop - the top of the stack is removed by this function.
+* function_stack - prints the top of the stack
+* @head: the head of the stack, linked list
+* @counter: line counter number
+*
+* Return: void
+*/
+void function_stack(stack_t **head, unsigned int counter)
+{
+        (void)head;
+        (void)counter;
+        bus.lifi = 0;
+}
+/**
+* function_pall - print out all the values of the stack
 * @head: pointer to the first node of the stack
 * @counter: line counter number
-*
 * Return: void
 */
-void function_pop(stack_t **head, unsigned int counter)
+void function_pall(stack_t **head, unsigned int counter)
 {
-	stack_t *tmp;
+        stack_t *ptr;
+        (void) counter;
 
-	if (*head == NULL)
-	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	tmp = *head;
-	*head = tmp->next;
-	free(tmp);
+        ptr = *head;
+        if (!ptr)
+                return;
+        for (; ptr != NULL; )
+        {
+                printf("%d\n", ptr->n);
+                ptr = ptr->next;   
+        }
 }
 
 /**
-* function_pint -  this function prints the stack's top element
-* @head: pointerto the first node of the stack
-* @counter: line counter number
+* function_swap - function that swaps the top two elements of the stack
+* @head: head of stack
+* @counter: counter for the line
 *
 * Return: void
 */
-void function_pint(stack_t **head, unsigned int counter)
+void function_swap(stack_t **head, unsigned int counter)
 {
-	if (*head == NULL)
-	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	printf("%d\n", (*head)->n);
-}
+        stack_t *ptr;
+        int len, temp_value;
 
-/**
-* function_nop - this function do nothing
-* @head: pointer to the first node of a stack
-* @counter: line counter number
-*
-* Return: void
-*/
-void function_nop(stack_t **head, unsigned int counter)
-{
-	(void) counter;
-	(void) head;
+        ptr = *head;
+
+        for (len = 0; ptr != NULL; len++)
+        {
+                ptr = ptr->next;
+        }
+
+        if (len < 2)
+        {
+                fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        ptr = *head;
+        temp_value = ptr->n;
+        ptr->n = ptr->next->n;
+        ptr->next->n = temp_value;
 }

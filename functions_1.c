@@ -1,4 +1,76 @@
 #include "monty.h"
+/**
+* function_sub - top Node subtraction function
+* @head: pointer to the head of the stack
+* @counter: line counter number
+*
+* Return: void
+*/
+void function_sub(stack_t **head, unsigned int counter)
+{
+        stack_t *ptr;
+        int sub_value, numd = 0;
+
+        ptr = *head;
+        for (; ptr != NULL; numd++)
+        {
+                ptr = ptr->next;
+        }
+        if (numd < 2)
+        {
+                fprintf(stderr, "L%d: can't sub_value, stack too short\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        ptr = *head;
+        sub_value = ptr->next->n - ptr->n;
+        ptr->next->n = sub_value;
+        *head = ptr->next;
+        free(ptr);
+}
+/**
+* function_mod - this function calculate the remondermodules of the top
+* two elements o the stack
+* @head: pointer to the first node of the stack
+* @counter: line counter number
+*
+* Return: void
+*/
+void function_mod(stack_t **head, unsigned int counter)
+{
+        stack_t *ptr;
+        int len = 0, mod_value;
+
+        ptr = *head;
+        for (len = 0; ptr != NULL; len++)
+        {
+                ptr = ptr->next;
+        }
+
+        if (len < 2)
+        {
+                fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        ptr = *head;
+        if (ptr->n == 0)
+        {
+                fprintf(stderr, "L%d: division by zero\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        mod_value = ptr->next->n % ptr->n;
+        ptr->next->n = mod_value;
+        *head = ptr->next;
+        free(ptr);
+}
 
 /**
 * function_sum - function that sums the stack's top two items
@@ -9,63 +81,31 @@
 */
 void function_sum(stack_t **head, unsigned int counter)
 {
-	stack_t *tmp;
-	int len, sum_value;
+        stack_t *ptr;
+        int len, sum_value;
 
-	tmp = *head;
+        ptr = *head;
 
-	for (len = 0; tmp; len++)
-	{
-		tmp = tmp->next;
-	}
+        for (len = 0; ptr; len++)
+        {
+                ptr = ptr->next;
+        }
 
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	tmp = *head;
-	sum_value = tmp->n + tmp->next->n;
-	tmp->next->n = sum_value;
-	*head = tmp->next;
-	free(tmp);
+        if (len < 2)
+        {
+                fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        ptr = *head;
+        sum_value = ptr->n + ptr->next->n;
+        ptr->next->n = sum_value;
+        *head = ptr->next;
+        free(ptr);
 }
 
-/**
-* function_sub - top Node subtraction function
-* @head: pointer to the head of the stack
-* @counter: line counter number
-*
-* Return: void
-*/
-void function_sub(stack_t **head, unsigned int counter)
-{
-	stack_t *tmpo;
-	int sub_value, numd = 0;
-
-	tmpo = *head;
-	while (tmpo)
-	{
-		tmpo = tmpo->next;
-		numd++;
-	}
-	if (numd < 2)
-	{
-		fprintf(stderr, "L%d: can't sub_value, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	tmpo = *head;
-	sub_value = tmpo->next->n - tmpo->n;
-	tmpo->next->n = sub_value;
-	*head = tmpo->next;
-	free(tmpo);
-}
 
 /**
 * function_mul - method that multiplies the stack's top two components
@@ -76,29 +116,29 @@ void function_sub(stack_t **head, unsigned int counter)
 */
 void function_mul(stack_t **head, unsigned int counter)
 {
-	stack_t *tmp;
-	int len, mul_value;
+        stack_t *ptr;
+        int len, mul_value;
 
-	tmp = *head;
+        ptr = *head;
 
-	for (len = 0; tmp != NULL; len++)
-	{
-		tmp = tmp->next;
-	}
+        for (len = 0; ptr != NULL; len++)
+        {
+                ptr = ptr->next;
+        }
 
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	tmp = *head;
-	mul_value = tmp->next->n * tmp->n;
-	tmp->next->n = mul_value;
-	*head = tmp->next;
-	free(tmp);
+        if (!(len >= 2))
+        {
+                fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        ptr = *head;
+        mul_value = ptr->next->n * ptr->n;
+        ptr->next->n = mul_value;
+        *head = ptr->next;
+        free(ptr);
 }
 
 /**
@@ -110,76 +150,34 @@ void function_mul(stack_t **head, unsigned int counter)
 */
 void function_div(stack_t **head, unsigned int counter)
 {
-	stack_t *tmpo;
-	int len, div_result;
+        stack_t *ptr;
+        int len, div_result;
 
-	tmpo = *head;
-	for (len = 0; tmpo != NULL; len++)
-	{
-		tmpo = tmpo->next;
-	}
+        ptr = *head;
+        for (len = 0; ptr != NULL; len++)
+        {
+                ptr = ptr->next;
+        }
 
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't div, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	tmpo = *head;
-	if (tmpo->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	div_result = tmpo->next->n / tmpo->n;
-	tmpo->next->n = div_result;
-	*head = tmpo->next;
-	free(tmpo);
-}
-
-/**
-* function_mod - this function calculate the remondermodules of the top
-* two elements o the stack
-* @head: pointer to the first node of the stack
-* @counter: line counter number
-*
-* Return: void
-*/
-void function_mod(stack_t **head, unsigned int counter)
-{
-	stack_t *tmp;
-	int len = 0, mod_value;
-
-	tmp = *head;
-	for (len = 0; tmp != NULL; len++)
-	{
-		tmp = tmp->next;
-	}
-
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	tmp = *head;
-	if (tmp->n == 0)
-	{
-		fprintf(stderr, "L%d: division by zero\n", counter);
-		fclose(bus.file);
-		free(bus.item);
-		free_the_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	mod_value = tmp->next->n % tmp->n;
-	tmp->next->n = mod_value;
-	*head = tmp->next;
-	free(tmp);
+        if (!(len >= 2))
+        {
+                fprintf(stderr, "L%d: can't div, stack too short\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        ptr = *head;
+        if (ptr->n == 0)
+        {
+                fprintf(stderr, "L%d: division by zero\n", counter);
+                fclose(bus.file);
+                free(bus.item);
+                free_the_stack(*head);
+                exit(EXIT_FAILURE);
+        }
+        div_result = ptr->next->n / ptr->n;
+        ptr->next->n = div_result;
+        *head = ptr->next;
+        free(ptr);
 }
