@@ -35,10 +35,7 @@ void function_pop(stack_t **head, unsigned int counter)
 */
 void function_pint(stack_t **head, unsigned int counter)
 {
-	stack_t *tmp;
-
-	tmp = *head;
-	if (tmp == NULL)
+	if (*head == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
 		fclose(bus.file);
