@@ -10,7 +10,7 @@
 void function_sum(stack_t **head, unsigned int counter)
 {
 	stack_t *tmp;
-	int len, n;
+	int len, sum_value;
 
 	tmp = *head;
 
@@ -28,8 +28,8 @@ void function_sum(stack_t **head, unsigned int counter)
 		exit(EXIT_FAILURE);
 	}
 	tmp = *head;
-	n = tmp->n + tmp->next->n;
-	tmp->next->n = n;
+	sum_value = tmp->n + tmp->next->n;
+	tmp->next->n = sum_value;
 	*head = tmp->next;
 	free(tmp);
 }

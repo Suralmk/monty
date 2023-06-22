@@ -31,7 +31,7 @@ void function_pall(stack_t **head, unsigned int counter)
 void function_swap(stack_t **head, unsigned int counter)
 {
 	stack_t *tmp;
-	int len = 0, temp_value;
+	int len, temp_value;
 
 	tmp = *head;
 
