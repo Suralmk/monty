@@ -1,6 +1,6 @@
-#define _GNU_SOURCE
 #include "monty.h"
 #include <stdio.h>
+#define _GNU_SOURCE
 #include <stdlib.h>
 
 bus_t bus = {NULL, NULL, NULL, 0};
@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 {
 	char *item;
 	FILE *file;
-	size_t size = 0;
-	ssize_t line = 1;
-	stack_t *stack = NULL;
-	unsigned int counter = 0;
+	size_t i = 0;
+	ssize_t space_get = 1;
+	stack_t *temp = NULL;
+	unsigned int num = 0;
 
 	if (argc != 2)
 	{
@@ -33,19 +33,19 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (line > 0)
+	while (space_get > 0)
 	{
 		item = NULL;
-		line = getline(NULL, &size, file);
+		space_get = getline(&item, &i, file);
 		bus.item = item;
-		counter++;
-		if (line > 0)
+		num++;
+		if (space_get > 0)
 		{
-			run_mty(item, &stack, counter, file);
+			run_mty(item, &temp, num, file);
 		}
 		free(item);
 	}
-	free_the_stack(stack);
+	free_the_stack(temp);
 	fclose(file);
 return (0);
 }
