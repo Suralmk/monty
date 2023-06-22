@@ -1,5 +1,5 @@
 #include "monty.h"
-
+box
 /**
 * function_push - this function adds a new node at the top of the stack
 * @head: pointer to the first node of the stack
@@ -22,13 +22,13 @@ void function_push(stack_t **head, unsigned int counter)
                         j++; }
                 if (sign == 1)
                 { fprintf(stderr, "L%d: usage: push integer\n", counter);
-                        fclose(bus.file);
+                        fclose(bus.box);
                         free(bus.item);
                         free_the_stack(*head);
                         exit(EXIT_FAILURE); }}
         else
         { fprintf(stderr, "L%d: usage: push integer\n", counter);
-                fclose(bus.file);
+                fclose(bus.box);
                 free(bus.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE); }
@@ -55,7 +55,7 @@ void function_pint(stack_t **head, unsigned int counter)
         if (ptr == NULL)
         {
                 fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
-                fclose(bus.file);
+                fclose(bus.box);
                 free(bus.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
@@ -90,7 +90,7 @@ void function_pop(stack_t **head, unsigned int counter)
         if (*head == NULL)
         {
                 fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
-                fclose(bus.file);
+                fclose(bus.box);
                 free(bus.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);

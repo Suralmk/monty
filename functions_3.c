@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
 * free_the_stack - this function frees the linked list, stack
 * @head: pointer to the head of the stack
@@ -75,7 +76,7 @@ void function_swap(stack_t **head, unsigned int counter)
         if (len < 2)
         {
                 fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
-                fclose(bus.file);
+                fclose(bus.box);
                 free(bus.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);

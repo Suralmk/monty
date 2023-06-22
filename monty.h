@@ -45,7 +45,7 @@ typedef struct instruction_s
 * struct bus_s - variable arguments, line counter number, unisgned int
 * the value off the arguents, File
 * @arg:  argument value
-* @file: pointer to the file
+* @box: pointer to the box file
 * @item: line item
 * @lifi: flag change stack <-> queue
 *
@@ -54,7 +54,7 @@ typedef struct instruction_s
 typedef struct bus_s
 {
 	char *arg;
-	FILE *file;
+	FILE *box;
 	char *item;
 	int lifi;
 }  bus_t;
@@ -82,5 +82,5 @@ void function_sum(stack_t **head, unsigned int counter);
 void function_sub(stack_t **head, unsigned int counter);
 void free_the_stack(stack_t *head);
 void function_stack(stack_t **head, unsigned int counter);
-int run_mty(char *chr, stack_t **head, unsigned int counter, FILE *file);
+int run_mty(char *chr, stack_t **head, unsigned int counter, FILE *box);
 #endif

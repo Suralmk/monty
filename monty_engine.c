@@ -4,12 +4,12 @@
 * run_mty - run the monty file opcode
 * @stack: this is the stac's head in the list
 * @counter: line counter number
-* @file: pointer to the monty file
+* @box: pointer to the monty file box
 * @item: item in a line
 *
 * Return: void
 */
-int run_mty(char *item, stack_t **stack, unsigned int counter, FILE *file)
+int run_mty(char *item, stack_t **stack, unsigned int counter, FILE *box)
 {
 	instruction_t opcoder[] = {
 				{"push", function_push}, {"pall", function_pall},
@@ -43,7 +43,7 @@ int run_mty(char *item, stack_t **stack, unsigned int counter, FILE *file)
 	}
 	if (op_code && opcoder[num].opcode == NULL)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", counter, op_code);
-		fclose(file);
+		fclose(box);
 		free(item);
 		free_the_stack(*stack);
 		exit(EXIT_FAILURE); }
