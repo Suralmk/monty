@@ -1,5 +1,5 @@
 #include "monty.h"
-
+lifi
 /**
 * function_push - this function adds a new node at the top of the stack
 * @head: pointer to the first node of the stack
@@ -33,7 +33,7 @@ void function_push(stack_t **head, unsigned int counter)
                 free_the_stack(*head);
                 exit(EXIT_FAILURE); }
         num = atoi(plane.arg);
-        if (plane.ski == 0)
+        if (plane.lifi == 0)
                 add_node(head, num);
         else
                 add_queue(head, num);
@@ -63,7 +63,7 @@ void function_pint(stack_t **head, unsigned int counter)
         printf("%d\n", (*head)->n);
 }
 
-/**
+/** lifi
 * function_nop - this function do nothing
 * @head: pointer to the first node of a stack
 * @counter: line counter number
