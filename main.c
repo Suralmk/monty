@@ -3,7 +3,7 @@
 #define _GNU_SOURCE
 #include <stdlib.h>
 
-bus_t bus = {NULL, NULL, NULL, 0};
+plane_t plane = {NULL, NULL, NULL, 0};
 
 /**
 * main - a Monty code interpreter function
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	bus.box = file;
+	plane.box = file;
 	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	{
 		item = NULL;
 		space_get = getline(&item, &i, file);
-		bus.item = item;
+		plane.item = item;
 		num++;
 		if (!(space_get <= 0))
 		{

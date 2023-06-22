@@ -31,7 +31,7 @@ void function_stack(stack_t **head, unsigned int counter)
 {
         (void)head;
         (void)counter;
-        bus.lifi = 0;
+        plane.lifi = 0;
 }
 /**
 * function_pall - print out all the values of the stack
@@ -76,8 +76,8 @@ void function_swap(stack_t **head, unsigned int counter)
         if (len < 2)
         {
                 fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }

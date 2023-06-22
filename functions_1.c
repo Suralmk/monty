@@ -20,8 +20,8 @@ void function_sub(stack_t **head, unsigned int counter)
         if (numd < 2)
         {
                 fprintf(stderr, "L%d: can't sub_value, stack too short\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -53,8 +53,8 @@ void function_mod(stack_t **head, unsigned int counter)
         if (len < 2)
         {
                 fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -62,8 +62,8 @@ void function_mod(stack_t **head, unsigned int counter)
         if (ptr->n == 0)
         {
                 fprintf(stderr, "L%d: division by zero\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -95,8 +95,8 @@ void function_sum(stack_t **head, unsigned int counter)
         if (len < 2)
         {
                 fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -130,8 +130,8 @@ void function_mul(stack_t **head, unsigned int counter)
         if (!(len >= 2))
         {
                 fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -163,8 +163,8 @@ void function_div(stack_t **head, unsigned int counter)
         if (!(len >= 2))
         {
                 fprintf(stderr, "L%d: can't div, stack too short\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -172,8 +172,8 @@ void function_div(stack_t **head, unsigned int counter)
         if (ptr->n == 0)
         {
                 fprintf(stderr, "L%d: division by zero\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }

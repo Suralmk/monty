@@ -11,29 +11,29 @@ void function_push(stack_t **head, unsigned int counter)
 {
         int num, j = 0, sign = 0;
 
-        if (bus.arg)
+        if (plane.arg)
         {
-                if (bus.arg[0] == '-')
+                if (plane.arg[0] == '-')
                         j++;
-                while (bus.arg[j] != '\0')
+                while (plane.arg[j] != '\0')
                 {
-                                if (bus.arg[j] > 57 || bus.arg[j] < 48)
+                                if (plane.arg[j] > 57 || plane.arg[j] < 48)
                                         sign = 1;
                         j++; }
                 if (sign == 1)
                 { fprintf(stderr, "L%d: usage: push integer\n", counter);
-                        fclose(bus.box);
-                        free(bus.item);
+                        fclose(plane.box);
+                        free(plane.item);
                         free_the_stack(*head);
                         exit(EXIT_FAILURE); }}
         else
         { fprintf(stderr, "L%d: usage: push integer\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE); }
-        num = atoi(bus.arg);
-        if (bus.lifi == 0)
+        num = atoi(plane.arg);
+        if (plane.lifi == 0)
                 add_node(head, num);
         else
                 add_queue(head, num);
@@ -55,8 +55,8 @@ void function_pint(stack_t **head, unsigned int counter)
         if (ptr == NULL)
         {
                 fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }
@@ -90,8 +90,8 @@ void function_pop(stack_t **head, unsigned int counter)
         if (*head == NULL)
         {
                 fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
-                fclose(bus.box);
-                free(bus.item);
+                fclose(plane.box);
+                free(plane.item);
                 free_the_stack(*head);
                 exit(EXIT_FAILURE);
         }

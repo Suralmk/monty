@@ -57,8 +57,8 @@ typedef struct bus_s
 	FILE *box;
 	char *item;
 	int lifi;
-}  bus_t;
-extern bus_t bus;
+}  plane_t;
+extern plane_t plane;
 
 
 
