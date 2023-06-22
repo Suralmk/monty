@@ -33,7 +33,7 @@ int run_mty(char *item, stack_t **stack, unsigned int counter, FILE *box)
 	op_code = strtok(item, " \n\t");
 	if (op_code != NULL && op_code[0] == '#')
 		return (0);
-	bus.arg = strtok(NULL, " \n\t");
+	plane.arg = strtok(NULL, " \n\t");
 	for (; opcoder[num].opcode && op_code; num++)
 	{
 		if (strcmp(op_code, opcoder[num].opcode) == 0)
