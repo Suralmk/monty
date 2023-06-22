@@ -9,19 +9,17 @@
 */
 void add_node(stack_t **head, int n)
 {
-stack_t *n_node, *tmp;
+stack_t *strange, *ptr = *head;
 
-	n_node = malloc(sizeof(stack_t));
-	tmp = *head;
-
-	if (n_node == NULL)
-	{ printf("Error\n");
-		exit(0);
-	}
-	if (tmp != NULL)
-		tmp->prev = n_node;
-	n_node->n = n;
-	n_node->next = *head;
-	n_node->prev = NULL;
-	*head = n_node;
+        strange = malloc(sizeof(stack_t));
+        if (!strange)
+        { printf("Error\n");
+                exit(0);
+        }
+            if (ptr != NULL)
+                    ptr->prev = strange;
+        strange->n = n;
+        strange->next = *head;
+        strange->prev = NULL;
+        *head = strange;
 }
