@@ -13,7 +13,7 @@ void function_push(stack_t **head, unsigned int counter)
 
 	if (bus.arg)
 	{
-		if (bus.arg[0] = '-')
+		if (bus.arg[0] == '-')
 			n++;
 		for (; bus.arg[n] != '\0'; n++)
 		{
